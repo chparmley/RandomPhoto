@@ -86,10 +86,17 @@ class ViewController: UIViewController {
     
     // storing pre loaded images
     var preload: [UIImage] = []
+    // sends request to specified url and saves response as a UIImage data type for viewing
     func getRandPhoto(x:Int){
+        // url to request
         let urlString = "https://picsum.photos/200"
+        // creating URL objectand unpacking with !
         let url = URL(string: urlString)!
+        // iterating a range
         for _ in 1...x {
+            // read more on 'guard'
+            // try? stroes a created data object if its creation is True
+            //    otherwise there was a data error so return and end the function
                 guard let data = try? Data(contentsOf: url) else{
                 return
             }
